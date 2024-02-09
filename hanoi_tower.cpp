@@ -1,5 +1,4 @@
 #include <stdio.h>
-using namespace std;
 
 void hanoi_tower(int n, int from, int to, int tmp)
 {
