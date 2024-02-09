@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 #include <cmath>
 #include <conio.h>
 using namespace std;
@@ -22,16 +22,14 @@ int f(int n, int x){
 int main() {
     int n, x;
     int s = 0;
-    cin >> n;
-    cin >> x;
+    printf("n = "); scanf("%d", &n);
+    printf("x = "); scanf("%d", &x);
     for (int i=0; i <= n; i++){
         s += f(i, x);
     }
-    cout << s;
+    printf("\ns = %d", s);
     return 0;
 }
-
-
 
 
 
