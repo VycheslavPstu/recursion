@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+#include <stdio.h>
 
 int fibonacci(int x) {
     if (x == 0) {
@@ -15,10 +13,9 @@ int fibonacci(int x) {
 
 int main() {
     int position;       
-    cout << "n = ";
-    cin >> position;
+    printf("n = "); scanf("%d", &position);
     for (int i = 0; i < position; i++) {
-        cout << fibonacci(i) << " ";
+        printf("%d ", fibonacci(i));
     }
 
     return 0;
