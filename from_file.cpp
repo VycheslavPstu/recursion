@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <cmath>
 #include <conio.h>
-using namespace std;
 
 int factorial(int n){
     int res;
