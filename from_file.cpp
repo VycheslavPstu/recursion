@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <cmath>
-#include <conio.h>
+#include <time.h>
+
 
 int factorial(int n){
     int res;
@@ -8,7 +9,6 @@ int factorial(int n){
     for (int i = 1; i <= n; i++) {
         res = res * i;
     }
-    getch();
     return res;
 }
 
@@ -18,17 +18,40 @@ int f(int n, int x){
 }
 
 
-int main() {
-    int n, x;
-    int s = 0;
-    printf("n = "); scanf("%d", &n);
-    printf("x = "); scanf("%d", &x);
-    for (int i=0; i <= n; i++){
-        s += f(i, x);
+int recursion_func(int n, int x, int s){
+    if (n == -1){
+        return s;
     }
-    printf("\ns = %d", s);
-    return 0;
+    else {
+        s += f(n, x);
+        return recursion_func(n-1, x, s);
+    }
 }
 
 
+int iteration_func(int n, int x, int s){
+    for (int i=0; i <= n; i++){
+        s += f(i, x);
+    }
+    return s;
+}
 
+
+int main() {
+    int n, x, type, func;
+    printf("n = "); scanf("%d", &n);
+    printf("x = "); scanf("%d", &x);
+    printf("Метод\n1: Рекурсивный\n2: Итерационный\n"); scanf("%d", &type);
+    int stime = clock();
+    if (type == 1){
+        func = recursion_func(n, x, 0);
+    }
+    else if(type == 2){
+        func = iteration_func(n, x, 0);
+    }
+    else{
+     printf("Метод отсуствует");
+    }
+    printf("\ns = %d\nВремя выполнения: %ld мс\n", func, clock()-stime);
+    return 0;
+}
